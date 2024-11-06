@@ -18,6 +18,27 @@ export default{
         items:String,
         bgColor:String
     },
+    categories: [
+         {
+             name: "Peach",
+             productCount: 17,
+             color: "#FEFBE8",
+             image: "../image/alpha.png"
+         },
+         {
+             name: "Red Apple",
+             productCount: 68,
+             color: "#FFF0E9",
+             image: "../image/apple.png"
+         },
+         {
+             name: "Snack",
+             productCount: 34,
+             color: "#FEF4EB",
+             image: "../image/snac.png"
+         },
+        
+      ]
 }
 </script>
 <style scoped>

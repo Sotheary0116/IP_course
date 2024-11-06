@@ -3,7 +3,9 @@
         <img :src="bgImage" alt="">
         <h2>{{ TittlePromotion }}</h2>
         <h3>{{ massage }}</h3>
-        <Button :buttonText="'show now'"/>
+        <Button :buttonText="'shop now'" @click="shopnow"/>
+
+        
     </div>
 </template>
 <script>
@@ -17,7 +19,35 @@ export default {
         bgImage:String,
         bgColorSecond:String,
         TittlePromotion:String,
-    }
+    },
+    methods: {
+        shopnow(promotion){
+            alert("Let's shop:" +this.TittlePromotion);
+        }
+    },
+    promotions: [
+         {
+             title: "Everyday Fresh and Clean with Our Products",
+             color: "#F0E9D7",
+             image: "../image/background1.jpg",
+             buttonColor: "#42B678",
+             url: "/promotions/1",
+         },
+         {
+             title: "Make your Breakfast Healthy and Easy",
+             color: "#F2E8E9",
+             image: "../image/background2.png",
+             buttonColor: "#42B678",
+             url: "/promotions/2",
+         },
+         {
+             title: "The best Organic Products Online",
+             color: "#E6EAF3",
+             image: "../image/background3.jpg",
+             buttonColor: "#FBC040",
+             url: "/promotions/3",
+         }
+      ]
 }
 </script>
 <style >

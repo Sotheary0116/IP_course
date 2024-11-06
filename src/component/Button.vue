@@ -28,6 +28,6 @@ export default {
     border-radius: 10px;
 }
 .button:hover{
-    background-color: yellow;
+    background-color: rgb(0, 170, 255);
 }
 </style>
