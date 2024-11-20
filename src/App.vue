@@ -2,12 +2,12 @@
   <div class="container">
     <div class="row1">
 
-     <category v-for="(products, index) in products"
+     <category v-for="(products, index) in categories"
       :key="index"
-      :imgScr="products.img"
-      :title="products.title"
-      :items="products.item"
-      :bgColor="products.bgColor"
+      :image="products.image"
+      :name="products.name"
+      :productCount="products.productCount"
+      :color="products.color"
       />
 
     </div>
@@ -15,15 +15,17 @@
     <div class="row2">
       <promotion v-for="(promotion,second) in promotions"
       :key="second"
-      :bgImage="promotion.bgImage"
-      :bgColorSecond="promotion.bgColorSecond"
-      :TittlePromotion="promotion.TittlePromotion"
+      :image="promotion.image"
+      :color="promotion.color"
+      :tittle="promotion.tittle"
+      :buttoncolor="promotion.buttoncolor"
+     
       />
     </div>
   </div>
 </template>
 <script >
-
+import axios from 'axios';
 import Category from './component/category.vue';
 import promotion  from './component/promotion.vue';
 export default{
@@ -34,29 +36,47 @@ export default{
   },
   data(){
     return{
-      products:[
-        {img:'../image/orange.png', title:"Orange", item:63+"items",bgColor:'#efd7ab'},
-        {img:'../image/avokado.png', title:"green avokado", item:63+"items",bgColor:'#aed3ba'},
-        {img:'../image/buger.png', title:"brack", item:63+"items",bgColor:'#f2ebc2'},
-        {img:'../image/kiwi.png', title:"Oganic kiwi", item:63+"items",bgColor:'#defcdf'},
-        {img:'../image/sack.png', title:"cake", item:63+"items",bgColor:'#defcf7'},
-        {img:'../image/snac.png', title:"snack", item:63+"items",bgColor:'#f4fcde'},
-        {img:'../image/alpha.png', title:"Peach", item:63+"items",bgColor:'#fcecde'},
-        {img:'../image/vegatable.png', title:"Vegetable", item:63+"items",bgColor:'#defcec'},
-        {img:'../image/strawberry.png', title:"red straeberry", item:63+"items",bgColor:'#fce2de'},
-        {img:'../image/apple.png', title:"red apple", item:63+"items",bgColor:'#fac9c1'},
+      categories:[
+        {image:"/public/image/orange.png", name:"Orange", productCount:63+"productCount",color:'#efd7ab'},
+        {image:'/public/image/avokado.png', name:"green avokado", productCount:63+"productCount",color:'#aed3ba'},
+        {image:'/public/image/buger.png', name:"brack", productCount:63+"productCount",color:'#f2ebc2'},
+        {image:'/public/image/kiwi.png', name:"Oganic kiwi", productCount:63+"productCount",color:'#defcdf'},
+        {image:'/public/image/sack.png', name:"cake", productCount:63+"productCount",color:'#defcf7'},
+        {image:'/public/image/snac.png', name:"snack", productCount:63+"productCount",color:'#f4fcde'},
+        {image:'/public/image/alpha.png', name:"Peach", productCount:63+"productCount",color:'#fcecde'},
+        {image:'/public/image/vegatable.png', name:"Vegetable", productCount:63+"productCount",color:'#defcec'},
+        {image:'/public/image/strawberry.png', name:"red straeberry", productCount:63+"productCount",color:'#fce2de'},
+        {image:'/public/image/apple.png', name:"red apple", productCount:63+"productCount",color:'#fac9c1'},
 
       ],
       promotions:[
-        {bgImage:'../image/background1.jpg',bgColorSecond:'#F0E8D5',TittlePromotion:"Everyday Fresh & Clean with our Products"},
-        {bgImage:'../image/background2.png',bgColorSecond:'#FDE0FF',TittlePromotion:"Make you Breakfast Healthy and Easy"},
-        {bgImage:'../image/background3.jpg',bgColorSecond:'#E2EDEC',TittlePromotion:"The best Organic Products Online"},
-
-
+        {image:'/public/image/background1.jpg',color:'#F0E8D5',tittle:"Everyday Fresh & Clean with our Products"},
+        {image:'/public/image/background2.png',color:'#FDE0FF',tittle:"Make you Breakfast Healthy and Easy"},
+        {image:'/public/image/background3.jpg',color:'#E2EDEC',tittle:"The best Organic Products Online"},
       ]
 
     };
   },
+  mounted(){
+    this.fetchCategoried();
+    this.fetchPromotions();
+    
+
+  },
+  methods:{
+    fetchCategoried() {
+      axios.get("http://localhost:3000/api/categories").then((result) => {
+        // console.log(result.data);
+        this.Category = result.data;
+      });
+    },
+    fetchPromotions() {
+      axios.get("http://localhost:3000/api/promotions").then((result) => {
+        // console.log(result.data);
+        this.promotion = result.data;
+      });
+    }
+  }
 };
 
 </script>

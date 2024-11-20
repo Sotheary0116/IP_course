@@ -1,8 +1,8 @@
 <template>
-    <div class="Promot" :style="{backgroundColor: bgColorSecond}" >
-        <img :src="bgImage" alt="">
-        <h2>{{ TittlePromotion }}</h2>
-        <h3>{{ massage }}</h3>
+    <div class="Promot" :style="{backgroundColor: color}" >
+        <img :src="image" alt="tittle">
+        <h2>{{ tittle }}</h2>
+        <!-- <h3>{{ Tittle}}</h3> -->
         <Button :buttonText="'shop now'" @click="shopnow"/>
 
         
@@ -16,37 +16,39 @@ export default {
         Button,
     },
     props:{
-        bgImage:String,
-        bgColorSecond:String,
-        TittlePromotion:String,
+        image:String,
+        color:String,
+        tittle:String,
+        buttonColor:String,
+        url:String,
     },
     methods: {
         shopnow(promotion){
-            alert("Let's shop:" +this.TittlePromotion);
+            alert("Let's shop:" +this.Tittle);
         }
     },
     promotions: [
-         {
-             title: "Everyday Fresh and Clean with Our Products",
-             color: "#F0E9D7",
-             image: "../image/background1.jpg",
-             buttonColor: "#42B678",
-             url: "/promotions/1",
-         },
-         {
-             title: "Make your Breakfast Healthy and Easy",
-             color: "#F2E8E9",
-             image: "../image/background2.png",
-             buttonColor: "#42B678",
-             url: "/promotions/2",
-         },
-         {
-             title: "The best Organic Products Online",
-             color: "#E6EAF3",
-             image: "../image/background3.jpg",
-             buttonColor: "#FBC040",
-             url: "/promotions/3",
-         }
+        //  {
+        //      title: "Everyday Fresh and Clean with Our Products",
+        //      color: "#F0E9D7",
+        //      image: "../image/background1.jpg",
+        //      buttonColor: "#42B678",
+        //      url: "/promotions/1",
+        //  },
+        //  {
+        //      title: "Make your Breakfast Healthy and Easy",
+        //      color: "#F2E8E9",
+        //      image: "../image/background2.png",
+        //      buttonColor: "#42B678",
+        //      url: "/promotions/2",
+        //  },
+        //  {
+        //      title: "The best Organic Products Online",
+        //      color: "#E6EAF3",
+        //      image: "../image/background3.jpg",
+        //      buttonColor: "#FBC040",
+        //      url: "/promotions/3",
+        //  }
       ]
 }
 </script>

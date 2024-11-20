@@ -1,11 +1,11 @@
 <template>
-    <div class="card" :style="{backgroundColor:bgColor}">
+    <div class="card" :style="{backgroundColor:color}">
         <div class="card-img">
-            <img :src="imgScr" :alt="title">
+            <img :src="image" :alt="name">
         </div>
         <div class="card-text">
-            <h4>{{ title }}</h4>
-            <p>{{ items }}</p>
+            <h4>{{ name }}</h4>
+            <p>{{ productCount }}</p>
         </div>
     </div>
 </template>
@@ -13,30 +13,35 @@
 export default{
     name:"category",
     props:{
-        imgScr:String,
-        title:String,
-        items:String,
-        bgColor:String
+        productCount:{
+            type:String,
+            required:true
+
+        },
+        image:String,
+        name:String,
+        productCount:String,
+        color:String
     },
     categories: [
-         {
-             name: "Peach",
-             productCount: 17,
-             color: "#FEFBE8",
-             image: "../image/alpha.png"
-         },
-         {
-             name: "Red Apple",
-             productCount: 68,
-             color: "#FFF0E9",
-             image: "../image/apple.png"
-         },
-         {
-             name: "Snack",
-             productCount: 34,
-             color: "#FEF4EB",
-             image: "../image/snac.png"
-         },
+        //  {
+        //      name: "Peach",
+        //      productCount: 17,
+        //      color: "#FEFBE8",
+        //      image: "../image/alpha.png"
+        //  },
+        //  {
+        //      name: "Red Apple",
+        //      productCount: 68,
+        //      color: "#FFF0E9",
+        //      image: "../image/apple.png"
+        //  },
+        //  {
+        //      name: "Snack",
+        //      productCount: 34,
+        //      color: "#FEF4EB",
+        //      image: "../image/snac.png"
+        //  },
         
       ]
 }
