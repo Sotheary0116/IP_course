@@ -1,5 +1,6 @@
 <template>
     <main>
+      <showcase/>
       <div class="container">
         <div class="menu-store">
         <menus :menuItems="store.groups"/>
@@ -42,6 +43,7 @@
   import { useProductStore } from '@/stores/productStore';
   import { mapState } from 'pinia';
   import Promotion from '@/components/promotion.vue';
+  import Showcase from '@/components/showcase.vue';
   
   
   export default {
@@ -50,7 +52,8 @@
       Category,
       Promotion,
       menus,
-      product
+      product,
+      Showcase
     },
     setup() {
       const store = useProductStore();
@@ -70,6 +73,7 @@
       promotions: 'promotions',
       products: 'products',  
       groups: 'groups',
+      showcase:'showcase',
   }),
       }
   };
@@ -78,7 +82,7 @@
   main {
     margin: 0 auto; 
     justify-content: center; 
-    background-color: white;
+    background-color: rgb(255, 255, 255);
   }
   .container{
     flex-direction: column;

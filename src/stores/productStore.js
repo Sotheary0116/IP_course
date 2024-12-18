@@ -7,6 +7,7 @@ export const useProductStore = defineStore('product', {
     promotions: [], 
     categories: [], 
     products: [],
+    Showcase:[],
     loading:false,
   }),
   getters: {
